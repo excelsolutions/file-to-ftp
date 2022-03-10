@@ -74,11 +74,7 @@ Public Class Form_Main
     End Sub
 
     Private Sub Form_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        My.Forms.Form_Settings.T_Sciezka_Files.Text = My.Settings.Folder_Files
-        My.Forms.Form_Settings.T_Sciezka_FTP.Text = My.Settings.Folder_FTP
-        My.Forms.Form_Settings.T_Login.Text = My.Settings.Login
-        My.Forms.Form_Settings.T_Haslo.Text = My.Settings.Password
-        Wczytaj_Ustawienia() 'wczytaj je do zmiennych
+        Load_Settings_INI() 'wczytaj je do zmiennych
         L_Error.Text = ""
 
         ToolTip1.SetToolTip(Pic_Lista, "List of previously sent files")

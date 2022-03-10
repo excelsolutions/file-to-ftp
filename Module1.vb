@@ -3,22 +3,9 @@ Imports System.Net
 Imports System.Runtime.InteropServices
 Imports System.Threading
 Module Module1
-    Public File_Sent_List As String = "No history"
-    Public FTP_Path As String
-    Public Login As String
-    Public Password As String
-    Public Prefix As String
-    Public Sufix As String
-    Public Liczba_Znakow As Integer
 
-    Public Sub Wczytaj_Ustawienia()
-        FTP_Path = My.Settings.Folder_FTP
-        Login = My.Settings.Login
-        Password = My.Settings.Password
-        Prefix = My.Settings.Prefix
-        Sufix = My.Settings.Sufix
-        Liczba_Znakow = CInt(My.Settings.Znaki)
-    End Sub
+
+
 
     Public Sub Send_To_Ftp()
 
@@ -45,7 +32,7 @@ Module Module1
                 remoteLOC = FTP_Path & System.IO.Path.GetFileName(Plik) 'nazwa ftp plus nazwa pliku
                 Try
                     'My.Computer.Network.UploadFile(Plik, remoteLOC, Login, Password, True, 500)
-                    Send_To_FTP_SFTP(Plik, FileName, FTP_Path, Login, Password, My.Settings.SFTP)
+                    Send_To_FTP_SFTP(Plik, FileName, FTP_Path, Login, Password, SFTP)
                     For Each item As ListViewItem In Form_List.Lista_Operacji.Items
                         If item.SubItems(2).Text = System.IO.Path.GetFullPath(Plik) Then
                             item.SubItems(4).Text = "Sent"
@@ -195,8 +182,8 @@ Module Module1
             Rodzaj_Bledu = Sprawdz_Plik(Plik)
             If Rodzaj_Bledu = "" Or Rodzaj_Bledu = "File is already renamed" Then
                 'TU DAĆ PROCEDURE KTORA DOTNIE ODPOWIEDNIO NAZWĘ PLIKU!!
-                If Liczba_Znakow > 0 Then
-                    Nazwa_Pliku = Left(System.IO.Path.GetFileName(Plik), Liczba_Znakow)
+                If Char_Num > 0 Then
+                    Nazwa_Pliku = Left(System.IO.Path.GetFileName(Plik), Char_Num)
                 Else
                     Nazwa_Pliku = System.IO.Path.GetFileName(Plik)
                 End If

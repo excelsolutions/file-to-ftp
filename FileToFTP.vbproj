@@ -101,7 +101,9 @@
     <Compile Include="Form_Settings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IniFile.vb" />
     <Compile Include="Module1.vb" />
+    <Compile Include="Module_INI.vb" />
     <Compile Include="Module_SFTP.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
