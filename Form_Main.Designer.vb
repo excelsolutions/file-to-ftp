@@ -106,13 +106,13 @@ Partial Class Form_Main
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(178, 34)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(178, 34)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -125,13 +125,14 @@ Partial Class Form_Main
         'TestFTPToolStripMenuItem
         '
         Me.TestFTPToolStripMenuItem.Name = "TestFTPToolStripMenuItem"
-        Me.TestFTPToolStripMenuItem.Size = New System.Drawing.Size(177, 34)
+        Me.TestFTPToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.TestFTPToolStripMenuItem.Text = "Test FTP"
+        Me.TestFTPToolStripMenuItem.Visible = False
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(177, 34)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(270, 34)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'L_Error

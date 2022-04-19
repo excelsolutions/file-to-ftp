@@ -67,39 +67,39 @@ Module Module1
 
     Public Function Ftp_Exist() As Boolean
 
-        Ftp_Exist = False
+        Ftp_Exist = True
         'WYŁĄCZENIE SPRAWDZANIA FTP !!!!!!!!
-        ' If 0 = 1 Then
-        If FTP_Path <> "" Then
-            Dim request =
-           DirectCast(WebRequest.Create(FTP_Path), FtpWebRequest)
+        If 0 = 1 Then
+            If FTP_Path <> "" Then
+                Dim request =
+               DirectCast(WebRequest.Create(FTP_Path), FtpWebRequest)
 
-            request.Credentials =
-                New NetworkCredential(Login, Password)
+                request.Credentials =
+                    New NetworkCredential(Login, Password)
 
-            request.Method = WebRequestMethods.Ftp.ListDirectory
+                request.Method = WebRequestMethods.Ftp.ListDirectory
 
-            Try
-                Using response As FtpWebResponse =
-                DirectCast(request.GetResponse(), FtpWebResponse)
-                    ' Folder exists here
-                    Ftp_Exist = True
-                End Using
+                Try
+                    Using response As FtpWebResponse =
+                    DirectCast(request.GetResponse(), FtpWebResponse)
+                        ' Folder exists here
+                        Ftp_Exist = True
+                    End Using
 
-            Catch ex As WebException
+                Catch ex As WebException
 
-                Dim response As FtpWebResponse =
-                DirectCast(ex.Response, FtpWebResponse)
-                'Does not exist
-                If response.StatusCode =
-                FtpStatusCode.ActionNotTakenFileUnavailable Then
-                    Ftp_Exist = False
-                End If
-            End Try
-        Else
-            Ftp_Exist = False
+                    Dim response As FtpWebResponse =
+                    DirectCast(ex.Response, FtpWebResponse)
+                    'Does not exist
+                    If response.StatusCode =
+                    FtpStatusCode.ActionNotTakenFileUnavailable Then
+                        Ftp_Exist = False
+                    End If
+                End Try
+            Else
+                Ftp_Exist = False
+            End If
         End If
-        ' End If
     End Function
 
     Public Function IsConnectedToInternet() As Boolean
